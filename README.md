@@ -17,10 +17,6 @@ The most common commission rule is that the site with the last click will get 10
 
 ## Task
 
-Your task is to process `TrackingEvent` messages from STDIN, in delimited (varint) protobuf format. 
-
-The protobuf messages are defined in the file [src/main/proto/trackevt.proto](src/main/proto/trackevt.proto).
-
 For each _conversion_ tracking event received, find the previous most recent _click_ or _impression_ (if no click) event for the same `device_id` (user). Tracking events with no prior click or impression should be ignored. 
 
 Write each found click-conversion or impression-conversion as `TrackingResult` messages to STDOUT in delimited (varint) protobuf format.
@@ -29,10 +25,6 @@ __Restrictions:__
 
 * The same click/impression event may not be used as referrer more than once.
 * Only click/impression events within the specified `timeWindow` (set to 12 hours) are eligible to be a referrer.
-
-__Considerations:__
-
-Write the code as you would in a professional environment. E.g. code quality, testing, etc.
 
 ## How to Build and Run 
 Go to folder trackevt-task and run below command
